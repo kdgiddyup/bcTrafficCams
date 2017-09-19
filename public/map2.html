@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta name="viewport" content="width=device-width, user-scalable=yes">
+    <meta name="description" content="Live traffic map for Beaufort County from The Island Packet and Beaufort Gazette newspapers on Hilton Head Island and Beaufort, SC. Copyright 2017" />
+    <meta name="keywords" content="Beaufort County, traffic, map, cameras, Island Packet, Beaufort Gazette, newspapers, bluffton" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="mobile-web-app-capable" content="yes" />
+    <LINK REL="apple-touch-icon" HREF="http://media.islandpacket.com/static/news/traffic/map_touch.png" />
+    <link rel="icon" sizes="196x196" href="http://media.islandpacket.com/static/news/traffic/map_touch.png" />
+    <title>Map of Beaufort County traffic cameras from The Island Packet and The Beaufort Gazette</title>
+    <style>
+        #map {
+            width: 100%;
+        }
+    </style>
+    <script src="http://maps.google.com/maps?file=api&amp;v=2&amp;key=ABQIAAAAhiUHxj3ykVVz4_1WLbzyixTaL1UxEi2TuEDDkpujyyDab5XJIxQkkw62Uo4pl_hbgFIcT-DRBB4v0g" type="text/javascript"></script>
+    <script src="../assets/scripts/camData.js" type="text/javascript"></script>
+    <script src="../assets/scripts/map.js" type="text/javascript"></script>
+</head>
+
+<body onload="trafficMap.load()" onunload="GUnload()">
+    <div id="map"></div>
+    <script type="text/javascript">
+        document.getElementById('map').style.height = window.innerHeight + 'px'
+    </script>
+</body>
+
+</html>
+
+<body onload="trafficMap.load()" onunload="GUnload()">
+    <div id="map"></div>
+</body>
+
+</html>

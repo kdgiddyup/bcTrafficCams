@@ -1,0 +1,81 @@
+<html>
+
+<head>
+    <title>Traffic Cameras by The Island Packet and Beaufort Gazette</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta name="viewport" content="width=device-width, user-scalable=yes">
+    <meta name="description" content="Live Beaufort County traffic cameras from The Island Packet and Beaufort Gazette newspapers on Hilton Head Island and Beaufort, SC" />
+    <meta name="keywords" content="Beaufort County, traffic, cameras, Island Packet, Beaufort Gazette, newspapers, bluffton" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="mobile-web-app-capable" content="yes" />
+    <LINK REL="apple-touch-icon" HREF="http://media.islandpacket.com/static/news/traffic/camera_image.png" />
+    <link rel="icon" sizes="196x196" href="http://media.islandpacket.com/static/news/traffic/camera_image.png" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="../assets/styles/cam.css" type="text/css" />
+    <link rel="image_src" href="../assets/images/camera_image.png" />
+    <script type="text/javascript" src="../assets/styles/camData.js"></script>
+    <script type="text/javascript" src="../assets/scripts/cams.js"></script>
+
+</head>
+
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12 col-xs-12">
+                <p>Drive safe! Do not use your phone while driving. When safe, report traffic issues to 843-706-8139 or <a href="http://www.twitter.com" target="_blank">Tweet</a> using a #bftcotraffic hashtag. <em>In the event of injury collisions in view of cameras, Beaufort County sometimes freezes views to protect patient privacy.</em></p>
+            </div>
+            <!-- /col -->
+        </div>
+        <!-- /row -->
+
+        <!-- single camera display -->
+        <div id="cam_single">
+            <h2 id="camera_label"></h2>
+            <p id="explainer_text">Images update every 4 seconds. Cameras provided by <a href="http://www.bcgov.net" target="_blank">Beaufort County.</a></p>
+
+            <img id="camera_image" />
+            <div id="camera_time"></div>
+            <p><a href="http://www.islandpacket.com/traffic" target="_blank">More traffic info</a></p>
+
+        </div>
+        <!-- /container -->
+
+        <!-- filter container -->
+        <div class="container">
+
+        </div>
+        <!-- /filter container -->
+
+        <!-- camera panel -->
+        <div class="container-fluid" id="camPanel">
+            <div id="camRow" class="row">
+            </div>
+        </div>
+        <!-- /camera panel -->
+
+        <!-- map area -->
+        <iframe frameborder="0" height="600" scrolling="no" src="map2.html" width="100%"></iframe>
+    </div>
+    <!-- /container -->
+
+    <div id="mistatstag" style="display:none;">
+        <!-- SiteCatalyst: McClatchy Static Stats Tag v.1.0 -->
+        <script type="text/javascript" src="http://media.islandpacket.com/misites/hhd/islandpacket.js"></script>
+        <script type="text/javascript" src="http://media.islandpacket.com/mistats/products/pubsys_s_code.js"></script>
+        <script type="text/javascript">
+            mistats.pagelevel = "Static";
+            mistats.channel = "Static: Traffic";
+            mistats.pagename = "Static: Beaufort County Traffic Cameras: " + imageLocation;
+            mistats.contentsource = mistats.sitename + ": Static: Kelly Davis";
+            mistats.keywords = "beaufort county, traffic, cameras, highways";
+            mistats.taxonomy = "News|Traffic|||";
+        </script>
+        <script type="text/javascript" src="http://media.islandpacket.com/mistats/products/pubsys.js"></script>
+        <script type="text/javascript" src="http://media.islandpacket.com/mistats/finalizestats.js"></script>
+        <!-- End SiteCatalyst: McClatchy Static Stats Tag v.1.0 -->
+    </div>
+</body>
+
+</html>
