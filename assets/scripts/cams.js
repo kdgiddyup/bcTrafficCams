@@ -70,42 +70,40 @@ $(document).ready(function(){
 		// unhide single camera div
 		$("#cam_specific").show();
 
-	}
+	};
 
-	// no specific cam requested
-	else {
+	// do these things whether specific camera is requested or not
 
-		// get locales from camData
-		var locales = $.map(camData, 
-			(value,key)=>{ 
-				{
-					return value.locale;
-				}
+	// to do: create button to hide all cameras 
+
+	// get locales from camData
+	var locales = $.map(camData, 
+		(value,key)=>{ 
+			{
+				return value.locale;
 			}
-		);
+		}
+	);
 
-		// filter locales to a unique set
-		locales = locales.filter( (item, i, locales) => {
-			return i == locales.indexOf(item);
-		});
-		locales.sort();
+	// filter locales to a unique set
+	locales = locales.filter( (item, i, locales) => {
+		return i == locales.indexOf(item);
+	});
+	locales.sort();
 
-		// build panel headers, div
-		$(locales).each( (index,element)=>{
-			$("#panelRow").append(`
-				<h2 class="localeHeader" data-locale="${element}">${element}</h2>
-				<div data-locale="${element}">cams goe here</div>`);
-		});
-		
-		// add click listener on headers
-		$(".localeHeader").on("click",function () {
-			var thisLocale = $(this).attr("data-locale");
-			console.log(thisLocale);
-			$(`div[data-locale='${thisLocale}']`).toggle("fast");
-		})
+	// build panel headers, div
+	$(locales).each( (index,element)=>{
+		$("#panelRow").append(`
+			<h2 class="localeHeader" data-locale="${element}">${element}</h2>
+			<div data-locale="${element}">cams goe here</div>`);
+	});
+	
+	// add click listener on headers
+	$(".localeHeader").on("click",function () {
+		var thisLocale = $(this).attr("data-locale");
+		$(`div[data-locale='${thisLocale}']`).toggle("fast");
+	})
 
-
-	}
 
 }) // end doc ready
 
