@@ -15,7 +15,7 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <link rel="stylesheet" href="../assets/styles/cam.css" type="text/css" />
     <link rel="image_src" href="../assets/images/camera_image.png" />
-    <script type="text/javascript" src="../assets/styles/camData.js"></script>
+    <script type="text/javascript" src="../assets/scripts/camData.js"></script>
     <script type="text/javascript" src="../assets/scripts/cams.js"></script>
 
 </head>
@@ -31,12 +31,12 @@
         <!-- /row -->
 
         <!-- single camera display -->
-        <div id="cam_single">
+        <div id="cam_specific">
             <h2 id="camera_label"></h2>
             <p id="explainer_text">Images update every 4 seconds. Cameras provided by <a href="http://www.bcgov.net" target="_blank">Beaufort County.</a></p>
 
             <img id="camera_image" />
-            <div id="camera_time"></div>
+            <div class="pull-right" id="camera_time"></div>
             <p><a href="http://www.islandpacket.com/traffic" target="_blank">More traffic info</a></p>
 
         </div>
@@ -60,22 +60,7 @@
     </div>
     <!-- /container -->
 
-    <div id="mistatstag" style="display:none;">
-        <!-- SiteCatalyst: McClatchy Static Stats Tag v.1.0 -->
-        <script type="text/javascript" src="http://media.islandpacket.com/misites/hhd/islandpacket.js"></script>
-        <script type="text/javascript" src="http://media.islandpacket.com/mistats/products/pubsys_s_code.js"></script>
-        <script type="text/javascript">
-            mistats.pagelevel = "Static";
-            mistats.channel = "Static: Traffic";
-            mistats.pagename = "Static: Beaufort County Traffic Cameras: " + imageLocation;
-            mistats.contentsource = mistats.sitename + ": Static: Kelly Davis";
-            mistats.keywords = "beaufort county, traffic, cameras, highways";
-            mistats.taxonomy = "News|Traffic|||";
-        </script>
-        <script type="text/javascript" src="http://media.islandpacket.com/mistats/products/pubsys.js"></script>
-        <script type="text/javascript" src="http://media.islandpacket.com/mistats/finalizestats.js"></script>
-        <!-- End SiteCatalyst: McClatchy Static Stats Tag v.1.0 -->
-    </div>
+
 </body>
 
 </html>
