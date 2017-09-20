@@ -1,16 +1,13 @@
-// initialize display
-// check URL for cam parameter
-var ourURL=window.location.href;
-if (ourURL.indexOf('?') > -1) {
-	var isSpecific=true;
-	var imagePos=ourURL.indexOf('?')+1;
-	imageNo=ourURL.substr(imagePos,2);
-	if (imageNo == '00') imageNo='74';
-	}
-else {
-	var isSpecific = false;
-	};
-	
+/****************
+ * 
+ * Kelly Davis, 
+ * github.com/kdgiddyup 
+ * September 2017
+ * 
+ * *************/
+
+// initialize
+
 var camURL = 'http://itmsweb.bcgov.net/ITMS/jpeg';
 // camera url structure is camURL+camNo+'.jpg'
 
@@ -20,6 +17,29 @@ var delay = 4000;
 
 // an image to show if camera image isn't available
 errorImg = 'http://media.islandpacket.com/static/news/traffic/imageLoading.png';
+
+// check URL for cam parameter
+var ourURL=location.href;
+
+// an array of all camera IDs in the dataset
+var camIDs = Object.keys(camData);
+
+//URL parsing - is this a specific cam or the landing page?
+if (ourURL.indexOf('?') > -1) {
+	var isSpecific=true;
+	var imagePos=ourURL.indexOf('?')+1;
+	var imageNo=ourURL.substr(imagePos,2);
+	// if imageNo doesn't match any cam IDs in our dataset, lets set it to the downtown Beaufort camera
+	if (camIDs.indexOf(imageNo) === -1) {
+		imageNo='74';
+		location.href=location.href.split("?")[0]+"?74";
+	}
+}
+else {
+	var isSpecific = false;
+	};
+
+// do these things after the page loads
 
 $(document).ready(function(){
 	// hide cam_specific div
@@ -37,6 +57,9 @@ $(document).ready(function(){
 		// add interval to this img element; send URL separately so it can be reapplied if there is an image loading error
 		setTimer(thisCam,camImg);
 		
+		// update camera label
+		$("#camera_label").html(camData[imageNo].location);
+
 		// place time stamp under image and update it on same delay interval as image updates
 		// we separate this from the image timer because it is used only on this specific camera view
 		$("#camera_time").html(new Date().toLocaleString());
@@ -51,6 +74,35 @@ $(document).ready(function(){
 
 	// no specific cam requested
 	else {
+
+		// get locales from camData
+		var locales = $.map(camData, 
+			(value,key)=>{ 
+				{
+					return value.locale;
+				}
+			}
+		);
+
+		// filter locales to a unique set
+		locales = locales.filter( (item, i, locales) => {
+			return i == locales.indexOf(item);
+		});
+		locales.sort();
+
+		// build panel headers, div
+		$(locales).each( (index,element)=>{
+			$("#panelRow").append(`
+				<h2 class="localeHeader" data-locale="${element}">${element}</h2>
+				<div data-locale="${element}">cams goe here</div>`);
+		});
+		
+		// add click listener on headers
+		$(".localeHeader").on("click",function () {
+			var thisLocale = $(this).attr("data-locale");
+			console.log(thisLocale);
+			$(`div[data-locale='${thisLocale}']`).toggle("fast");
+		})
 
 
 	}
