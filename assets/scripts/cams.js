@@ -112,9 +112,20 @@ $(document).ready(function(){
 		</div>`;
 		$(`.locale[data-locale="${camData[cam].locale}"]`).append(thisBlock);
 		
-		// add update timer to cameras
 		var camImg = $(`img[data-camID="${cam}"]`);
+
+		// add error and click event functions
+		camImg.on({
+			"error":()=>{ camImg.attr("src",errorImg) },
+			"click":()=>{ location.href= `${location.href.split("?")[0]}?${cam}` } 
+		});
+		
+		// add click event to image
+		camImg.on
+
+		// add update timer to cameras
 		setTimer(thisCam,camImg);
+
 	});
 
 	// add click listener on headers
