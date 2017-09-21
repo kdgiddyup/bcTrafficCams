@@ -40,7 +40,7 @@ else {
 	var isSpecific = false;
 	};
 
-function initmap(){
+function initMap(){
 	console.log("setting up map");
 }
 
