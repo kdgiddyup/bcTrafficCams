@@ -9,11 +9,11 @@
 // initialize
 
 var camURL = 'http://itmsweb.bcgov.net/ITMS/jpeg';
-// camera url structure is camURL+camNo+'.jpg'
+// camera image url structure is camURL+camNo+'.jpg'
 
 // some initial variables
 
-// timer object
+// timer object for cam images in modal window launched from map markers
 var modalTimer;
 
 // time between cam image updates
