@@ -75,18 +75,18 @@ function initMap(){
 			var mapImg = $("#modalImage");
 			mapImg.attr("src", mapImgURL);
 			
-			// add error and click listeners to modal image
-			mapImg.on("error",()=>{mapImg.attr("src",errorImg)});
-
 			// add timer to modal image
 			setModalTimer(mapImgURL,mapImg);
 			
 			// show modal
 			$("#camModal").modal().show();
 			
-			// add listener to modal image
-			$("#modalImage").off().on("click", ()=>{
-				location.href= `${location.href.split("?")[0]}?${camID}`});
+			// add error and click listeners to modal image
+			$(mapImg).off().on({
+				"error":()=>{mapImg.attr("src",errorImg)},
+				"click": ()=>{
+				location.href= `${location.href.split("?")[0]}?${camID}`}
+				});
 			});
 		
 	};
