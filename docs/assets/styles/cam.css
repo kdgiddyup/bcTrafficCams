@@ -38,7 +38,6 @@
 
 #mapModal .modal-dialog {
     width: 90%;
-    /* respsonsive width */
+    height: 90%;
     margin-left: -45%;
-    /* width/2) */
 }
