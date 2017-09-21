@@ -5,7 +5,6 @@
  * September 2017
  * 
  * *************/
-// key: AIzaSyDAvjBGR4xy-kqpdrE4TK_aQqzEkRUgtIc
 
 // initialize
 
@@ -41,9 +40,13 @@ else {
 	var isSpecific = false;
 	};
 
-// do these things after the page loads
+function initmap(){
+	console.log("setting up map");
+}
 
+// do these things after the page loads
 $(document).ready(function(){
+	
 	// hide cam_specific div
 	$("#cam_specific").hide();
 
