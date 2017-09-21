@@ -11,10 +11,15 @@
     font-size: .9em;
 }
 
-.topLink {
-    text-align: right;
-}
-
 .camContainer {
     height: 230px;
+}
+
+#hideAllBtn,
+#showAllBtn {
+    margin: 0 0 15px 0;
+}
+
+.localeHeader {
+    margin: 0 0 10px 0;
 }

@@ -75,8 +75,6 @@ $(document).ready(function(){
 
 	// do these things whether specific camera is requested or not
 
-	// to do: create button to hide all cameras 
-
 	// get locales from camData
 	var locales = $.map(camData, 
 		(key)=>{ 
@@ -97,30 +95,40 @@ $(document).ready(function(){
 	$(locales).each( (index,element)=>{
 		$("#panelCol").append(`
 			<button class="localeHeader btn btn-success btn-block" data-locale="${element}">${element}</button>
-			<div class="locale row" data-locale="${element}">
-				<h4 class="topLink"><a href="#panelCol">Top</a></h4>
-			</div>`);
+			<div class="locale row" data-locale="${element}"></div>`);
+	});
+	
+
+	// add cameras to appropriate locale divs
+	$(camIDs).each( function(index,cam){
+		//thisLocale = camData[cam].locale;
+		var thisBlock = 
+		`<div class="camContainer col-lg-3 col-md-3 col-sm-4 col-xs-12">
+			<img data-camID="${cam}" src="${camURL}${cam}.jpg" class="camThumb"/> 
+			<h4 data-camID="${cam}" class="camLabel">${camData[cam].location}</h4>    
+		</div>`;
+		$(`.locale[data-locale="${camData[cam].locale}"]`).append(thisBlock);
+
 	});
 	
 	// add click listener on headers
 	$(".localeHeader").on("click",function () {
+
+		// get locale data from clicked button
 		var thisLocale = $(this).attr("data-locale");
-		$(`div[data-locale="${thisLocale}"]`).toggle("fast");
+		
+		$(`.locale[data-locale="${thisLocale}"]`).toggle("fast");
 	})
-
-	// add cameras to appropriate locale divs
-		$(camIDs).each( function(index,cam){
-			//thisLocale = camData[cam].locale;
-			var thisBlock = 
-			`<div class="camContainer col-lg-3 col-md-3 col-sm-4 col-xs-12">
-				<img data-camID="${cam}" src="${camURL}${cam}.jpg" class="camThumb"/> 
-				<h4 data-camID="${cam}" class="camLabel">${camData[cam].location}</h4>    
-			</div>`;
-			$(`.locale[data-locale="${camData[cam].locale}"]`).append(thisBlock);
-
-		});
 	
+	// button to hide all cameras 
+	$("#hideAllBtn").on("click",function(){
+		$(".locale").hide("fast");
+	});
 
+	// button to show all cameras 
+	$("#showAllBtn").on("click",function(){
+		$(".locale").show("fast");
+	});
 
 }) // end doc ready
 
