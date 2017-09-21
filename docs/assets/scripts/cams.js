@@ -218,6 +218,7 @@ $(document).ready(function(){
 		$(".locale").show("fast");
 	});
 
+	
 	// keyup listener for camera filter input
 	$("#filterInput").on("keyup", function(){
 		
