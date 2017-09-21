@@ -1,0 +1,70 @@
+<html>
+
+<head>
+    <title>Traffic Cameras by The Island Packet and Beaufort Gazette</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta name="viewport" content="width=device-width, user-scalable=yes">
+    <meta name="description" content="Live Beaufort County traffic cameras from The Island Packet and Beaufort Gazette newspapers on Hilton Head Island and Beaufort, SC" />
+    <meta name="keywords" content="Beaufort County, traffic, cameras, Island Packet, Beaufort Gazette, newspapers, bluffton" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="mobile-web-app-capable" content="yes" />
+    <LINK REL="apple-touch-icon" HREF="http://media.islandpacket.com/static/news/traffic/camera_image.png" />
+    <link rel="icon" sizes="196x196" href="http://media.islandpacket.com/static/news/traffic/camera_image.png" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="../assets/styles/cam.css" type="text/css" />
+    <link rel="image_src" href="../assets/images/camera_image.png" />
+    <script type="text/javascript" src="../assets/scripts/camData.js"></script>
+    <script type="text/javascript" src="../assets/scripts/cams.js"></script>
+
+</head>
+
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12 col-xs-12">
+                <p>These cameras are operated by <a href="http://www.bcgov.net" target="_blank">Beaufort County.</a> Views are not recorded.</p>
+                <p>Drive safely! Do not use your phone while driving. When you can safely do so, report traffic issues to <a href="tel:843-706-8133">843-706-8133</a> or <a href="http://www.twitter.com" target="_blank">Tweet</a> using a #bftcotraffic hashtag.</p>
+                <p><strong>Tips for using this page:</strong> Images update every 4 seconds. Views that do not update are inoperable or frozen by an operator. Click a camera's thumbnail to visit its unique page, which you can bookmark. Click a locale label
+                    to show or hide cameras from that area. Click the "Hide all" button to collapse all thumbnails so you can easily navigate to locales that interest you.</p>
+                <p id="explainer_text"> </p>
+            </div>
+            <!-- /col -->
+        </div>
+        <!-- /row -->
+
+        <!-- single camera display -->
+        <div id="cam_specific">
+            <h2 id="camera_label"></h2>
+            <img id="camera_image" />
+            <div class="pull-right" id="camera_time"></div>
+            <p><a href="http://www.islandpacket.com/traffic" target="_blank">More traffic info</a></p>
+
+        </div>
+        <!-- /container -->
+
+        <!-- filter  -->
+        <div id="camFilter" class="input-group">
+            <span class="input-group-addon" id="basic-addon1">Filter</span>
+            <input id="filterInput" type="text" class="form-control" placeholder="Type locations (i.e. 'Trask' or 'circle')" aria-describedby="basic-addon1">
+        </div>
+        <!-- /filter  -->
+
+        <!-- camera panel -->
+        <div class="row" id="camPanel">
+            <div id="panelCol" class="col-lg-12">
+                <div id="hideAllBtn" class="btn btn-primary">Hide All</div>
+                <div id="showAllBtn" class="btn btn-primary">Show All</div>
+            </div>
+        </div>
+        <!-- /camera panel -->
+
+        <!-- map area -->
+        <iframe frameborder="0" height="600" scrolling="no" src="map2.html" width="100%"></iframe>
+    </div>
+    <!-- /container -->
+
+</body>
+
+</html>

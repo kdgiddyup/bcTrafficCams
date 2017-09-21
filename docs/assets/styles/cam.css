@@ -1,0 +1,30 @@
+#camera_image,
+.camThumb {
+    width: 100%;
+}
+
+.camThumb {
+    box-shadow: 0 10px 45px -20px #000000;
+    cursor: pointer;
+}
+
+.camLabel {
+    font-size: .9em;
+}
+
+.camContainer {
+    height: 230px;
+}
+
+#hideAllBtn,
+#showAllBtn {
+    margin: 0 0 15px 0;
+}
+
+.localeHeader {
+    margin: 0 0 10px 0;
+}
+
+#camFilter {
+    margin: 0 0 10px 0;
+}
