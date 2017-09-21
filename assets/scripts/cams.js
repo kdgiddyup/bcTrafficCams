@@ -29,6 +29,7 @@ if (ourURL.indexOf('?') > -1) {
 	var isSpecific=true;
 	var imagePos=ourURL.indexOf('?')+1;
 	var imageNo=ourURL.substr(imagePos,2);
+	
 	// if imageNo doesn't match any cam IDs in our dataset, lets set it to the downtown Beaufort camera
 	if (camIDs.indexOf(imageNo) === -1) {
 		imageNo='74';
@@ -60,8 +61,8 @@ $(document).ready(function(){
 		// update camera label
 		$("#camera_label").html(camData[imageNo].location);
 
-		// place time stamp under image and update it on same delay interval as image updates
-		// we separate this from the image timer because it is used only on this specific camera view
+		// place time stamp on DOM and update it on same  interval as image
+		// we separate this from the image timer because it is used only on this specific-camera view
 		$("#camera_time").html(new Date().toLocaleString());
 		setInterval(function(){
 			$("#camera_time").html(new Date().toLocaleString());
@@ -78,9 +79,9 @@ $(document).ready(function(){
 
 	// get locales from camData
 	var locales = $.map(camData, 
-		(value,key)=>{ 
+		(key)=>{ 
 			{
-				return value.locale;
+				return key.locale;
 			}
 		}
 	);
@@ -89,20 +90,36 @@ $(document).ready(function(){
 	locales = locales.filter( (item, i, locales) => {
 		return i == locales.indexOf(item);
 	});
+	// sort locales alphabetically
 	locales.sort();
 
 	// build panel headers, div
 	$(locales).each( (index,element)=>{
-		$("#panelRow").append(`
-			<h2 class="localeHeader" data-locale="${element}">${element}</h2>
-			<div data-locale="${element}">cams goe here</div>`);
+		$("#panelCol").append(`
+			<button class="localeHeader btn btn-success btn-block" data-locale="${element}">${element}</button>
+			<div class="locale row" data-locale="${element}">
+				<h4 class="topLink"><a href="#panelCol">Top</a></h4>
+			</div>`);
 	});
 	
 	// add click listener on headers
 	$(".localeHeader").on("click",function () {
 		var thisLocale = $(this).attr("data-locale");
-		$(`div[data-locale='${thisLocale}']`).toggle("fast");
+		$(`div[data-locale="${thisLocale}"]`).toggle("fast");
 	})
+
+	// add cameras to appropriate locale divs
+		$(camIDs).each( function(index,cam){
+			//thisLocale = camData[cam].locale;
+			var thisBlock = 
+			`<div class="camContainer col-lg-3 col-md-3 col-sm-4 col-xs-12">
+				<img data-camID="${cam}" src="${camURL}${cam}.jpg" class="camThumb"/> 
+				<h4 data-camID="${cam}" class="camLabel">${camData[cam].location}</h4>    
+			</div>`;
+			$(`.locale[data-locale="${camData[cam].locale}"]`).append(thisBlock);
+
+		});
+	
 
 
 }) // end doc ready
