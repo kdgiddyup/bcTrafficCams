@@ -63,9 +63,9 @@ function initMap(){
 			camID: cam
 		  });
 		thisMarker.addListener('click', function() {
-			console.log("camID:",this.camID);
-			$("#modalHeader").html(camData[cam].location);
-			var mapImgURL = `${camURL}${cam}.jpg`;
+			var camID = this.camID;
+			$("#modalHeader").html(camData[camID].location);
+			var mapImgURL = `${camURL}${camID}.jpg`;
 			var mapImg = $("#modalImage");
 			mapImg.attr("src", mapImgURL);
 			
