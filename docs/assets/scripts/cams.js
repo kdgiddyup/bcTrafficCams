@@ -218,11 +218,6 @@ $(document).ready(function(){
 		$(".locale").show("fast");
 	});
 
-	// click event for map
-	$("#showMap").on("click",function(){
-		$("#map").offset({top:10})
-	})
-
 	// keyup listener for camera filter input
 	$("#filterInput").on("keyup", function(){
 		
