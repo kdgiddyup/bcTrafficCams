@@ -101,31 +101,40 @@ $(document).ready(function(){
 
 	// add cameras to appropriate locale divs
 	$(camIDs).each( function(index,cam){
-		//thisLocale = camData[cam].locale;
+		
+		//build this cam's URL
+		var thisCam = camURL+cam+".jpg";
+
 		var thisBlock = 
 		`<div class="camContainer col-lg-3 col-md-3 col-sm-4 col-xs-12">
-			<img data-camID="${cam}" src="${camURL}${cam}.jpg" class="camThumb"/> 
+			<img data-camID="${cam}" src="${thisCam}" class="camThumb"/> 
 			<h4 data-camID="${cam}" class="camLabel">${camData[cam].location}</h4>    
 		</div>`;
 		$(`.locale[data-locale="${camData[cam].locale}"]`).append(thisBlock);
-
+		
+		// add update timer to cameras
+		var camImg = $(`img[data-camID="${cam}"]`);
+		setTimer(thisCam,camImg);
 	});
-	
+
 	// add click listener on headers
 	$(".localeHeader").on("click",function () {
 
 		// get locale data from clicked button
 		var thisLocale = $(this).attr("data-locale");
 		
+		// apply toggle to matching locale divs
 		$(`.locale[data-locale="${thisLocale}"]`).toggle("fast");
 	})
 	
-	// button to hide all cameras 
+	// show/hide buttons: not just one that toggles all because user can also individually hide/show individual locales
+
+	// click event for button to hide all cameras 
 	$("#hideAllBtn").on("click",function(){
 		$(".locale").hide("fast");
 	});
 
-	// button to show all cameras 
+	// click event for button to show all cameras 
 	$("#showAllBtn").on("click",function(){
 		$(".locale").show("fast");
 	});
