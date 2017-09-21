@@ -72,16 +72,17 @@ function initMap(){
 			mapImg.attr("src", mapImgURL);
 			
 			// add error and click listeners to modal image
-			mapImg.on({
-				"error":()=>{mapImg.attr("src",errorImg)},
-				"click":location.href= `${location.href.split("?")[0]}?${camID}`
-			});
+			mapImg.on("error",()=>{mapImg.attr("src",errorImg)});
 
 			// add timer to modal image
 			setTimer(mapImgURL,mapImg);
 			
 			// show modal
-			$("#camModal").modal().show()
+			$("#camModal").modal().show();
+			
+			// add listener to modal image
+			$("#modalImage").off().on("click", ()=>{
+				location.href= `${location.href.split("?")[0]}?${camID}`});
 			});
 		
 	};
