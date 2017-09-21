@@ -66,7 +66,7 @@ function initMap(){
 		// add click listener for markers  
 		thisMarker.addListener('click', function() {
 			var camID = this.camID;
-			$("#modalHeader").html(camData[camID].location);
+			$("#modalHeader").html(this.title);
 			var mapImgURL = `${camURL}${camID}.jpg`;
 			var mapImg = $("#modalImage");
 			mapImg.attr("src", mapImgURL);
