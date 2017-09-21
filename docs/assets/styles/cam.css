@@ -36,7 +36,7 @@
     height: 100%;
 }
 
-#mapModal .modal-content {
+#mapModal .modal-dialog {
     width: 90%;
     /* respsonsive width */
     margin-left: -45%;
