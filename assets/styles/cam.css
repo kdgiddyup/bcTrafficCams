@@ -1,4 +1,5 @@
 #camera_image,
+#modalImage,
 .camThumb {
     width: 100%;
 }
@@ -27,4 +28,9 @@
 
 #camFilter {
     margin: 0 0 10px 0;
+}
+
+#map {
+    width: 100%;
+    height: 500px;
 }

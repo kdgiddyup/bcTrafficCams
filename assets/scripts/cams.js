@@ -40,9 +40,47 @@ else {
 	var isSpecific = false;
 	};
 
+// create map at bottom of page
 function initMap(){
-	console.log("setting up map");
+	var map = new google.maps.Map(document.getElementById('map'), {
+	  zoom: 10,
+	  center: {lat: 32.3318, lng: -80.8266}
+		});
+	// add markers
+	for (var cam in camData){
+		console.log(camData[cam].location);
+		var thisMarker = new google.maps.Marker({
+			position: camData[cam].pos,
+			map: map,
+			title: camData[cam].location,
+			animation: google.maps.Animation.DROP,
+			icon: {
+				path: google.maps.SymbolPath.CIRCLE,
+				scale: 10,
+				fillColor: "#0288d1",
+				fillOpacity: .8
+			  },
+			camID: cam
+		  });
+		thisMarker.addListener('click', function() {
+			$("#modalHeader").html(camData[cam].location);
+			var mapImgURL = `${camURL}${cam}.jpg`;
+			var mapImg = $("#modalImage");
+			mapImg.attr("src", mapImgURL);
+			
+			// add error listener to modal image
+			mapImg.on("error",()=>{mapImg.attr("src",errorImg)});
+
+			// add timer to modal image
+			setTimer(mapImgURL,mapImg);
+			
+			// show modal
+			$("#camModal").modal().show()
+			});
+		
+	};
 }
+
 
 // do these things after the page loads
 $(document).ready(function(){
@@ -82,9 +120,7 @@ $(document).ready(function(){
 	// get locales from camData
 	var locales = $.map(camData, 
 		(key)=>{ 
-			{
-				return key.locale;
-			}
+			return key.locale;
 		}
 	);
 
