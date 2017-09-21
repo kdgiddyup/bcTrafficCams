@@ -130,8 +130,9 @@ $(document).ready(function(){
 		
 		// each element is a locale, whose children are arrays of camera containers
 		//  
-		var thisLocale = $(element).children();
-		thisLocale.sort( function( a, b ){
+		var thisLocaleCams = $(element).children();
+		thisLocaleCams.sort( function( a, b ){
+			// obtain location string for each camera in this comparison
 			var locationA = $(a).attr("data-location");
 			var locationB = $(b).attr("data-location");	 
 			if(locationA > locationB) {
@@ -142,8 +143,8 @@ $(document).ready(function(){
 			}
 			return 0;
 		 	});
-		
-		thisLocale.detach().appendTo(element);
+		// detach selected elements and reattach in sorted form
+		thisLocaleCams.detach().appendTo(element);
 	});
 
 
@@ -168,6 +169,19 @@ $(document).ready(function(){
 	$("#showAllBtn").on("click",function(){
 		$(".locale").show("fast");
 	});
+
+	// keyup listener for camera filter input
+	$("#filterInput").on("keyup", function(){
+		var value = $(this).val().toLowerCase().trim();
+		$(".camContainer").each( function(index,element){
+			if ($(element).attr("data-location").toLowerCase().indexOf(value)>-1) {
+				$(element).show("fast")
+			}
+			else {
+				$(element).hide("fast")
+			}
+			});
+		});
 
 }) // end doc ready
 
