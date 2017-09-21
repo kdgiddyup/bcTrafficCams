@@ -48,7 +48,6 @@ function initMap(){
 		});
 	// add markers
 	for (var cam in camData){
-		console.log(camData[cam].location);
 		var thisMarker = new google.maps.Marker({
 			position: camData[cam].pos,
 			map: map,
@@ -63,6 +62,7 @@ function initMap(){
 			camID: cam
 		  });
 		thisMarker.addListener('click', function() {
+			console.log("camID:",this.camID);
 			$("#modalHeader").html(camData[cam].location);
 			var mapImgURL = `${camURL}${cam}.jpg`;
 			var mapImg = $("#modalImage");
