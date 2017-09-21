@@ -172,7 +172,12 @@ $(document).ready(function(){
 
 	// keyup listener for camera filter input
 	$("#filterInput").on("keyup", function(){
+		
+		// grab and normalize value from input
 		var value = $(this).val().toLowerCase().trim();
+		
+		// loop through camera containers and look for matches to value; if found, show that camera, if not, hide it. 
+		//We don't just hide cams in case text input changes and become a match for a previously hidden camera
 		$(".camContainer").each( function(index,element){
 			if ($(element).attr("data-location").toLowerCase().indexOf(value)>-1) {
 				$(element).show("fast")
