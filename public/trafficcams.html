@@ -34,7 +34,7 @@
         </div>
         <!-- /row -->
 
-        <!-- single camera display -->
+        <!-- specific camera display -->
         <div id="cam_specific">
             <h2 id="camera_label"></h2>
             <img id="camera_image" />
@@ -42,7 +42,7 @@
             <p><a href="http://www.islandpacket.com/traffic" target="_blank">More traffic info</a></p>
 
         </div>
-        <!-- /container -->
+        <!-- /specific camera display -->
 
         <!-- filter  -->
         <div id="camFilter" class="input-group">
@@ -61,10 +61,11 @@
         <!-- /camera panel -->
 
         <!-- map area -->
-        <iframe frameborder="0" height="600" scrolling="no" src="map2.html" width="100%"></iframe>
+        <div id="map"></div>
     </div>
     <!-- /container -->
-
+    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDAvjBGR4xy-kqpdrE4TK_aQqzEkRUgtIc&callback=initMap">
+    </script>
 </body>
 
 </html>
