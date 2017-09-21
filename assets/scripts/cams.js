@@ -106,7 +106,7 @@ $(document).ready(function(){
 		var thisCam = camURL+cam+".jpg";
 
 		var thisBlock = 
-		`<div class="camContainer col-lg-3 col-md-3 col-sm-4 col-xs-12">
+		`<div class="camContainer col-lg-3 col-md-3 col-sm-4 col-xs-12" data-location="${camData[cam].location}">
 			<img data-camID="${cam}" src="${thisCam}" class="camThumb"/> 
 			<h4 data-camID="${cam}" class="camLabel">${camData[cam].location}</h4>    
 		</div>`;
@@ -119,14 +119,33 @@ $(document).ready(function(){
 			"error":()=>{ camImg.attr("src",errorImg) },
 			"click":()=>{ location.href= `${location.href.split("?")[0]}?${cam}` } 
 		});
-		
-		// add click event to image
-		camImg.on
 
 		// add update timer to cameras
 		setTimer(thisCam,camImg);
-
 	});
+
+	// sort cameras within each locale
+	// first, select all locales and cycle through them
+	$(".locale").each( function( index,element){
+		
+		// each element is a locale, whose children are arrays of camera containers
+		//  
+		var thisLocale = $(element).children();
+		thisLocale.sort( function( a, b ){
+			var locationA = $(a).attr("data-location");
+			var locationB = $(b).attr("data-location");	 
+			if(locationA > locationB) {
+				return 1;
+			}
+			if(locationA < locationB) {
+				return -1;
+			}
+			return 0;
+		 	});
+		
+		thisLocale.detach().appendTo(element);
+	});
+
 
 	// add click listener on headers
 	$(".localeHeader").on("click",function () {
