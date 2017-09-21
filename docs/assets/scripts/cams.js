@@ -62,6 +62,8 @@ function initMap(){
 			  },
 			camID: cam
 		  });
+
+		// add click listener for markers  
 		thisMarker.addListener('click', function() {
 			var camID = this.camID;
 			$("#modalHeader").html(camData[camID].location);
@@ -69,8 +71,11 @@ function initMap(){
 			var mapImg = $("#modalImage");
 			mapImg.attr("src", mapImgURL);
 			
-			// add error listener to modal image
-			mapImg.on("error",()=>{mapImg.attr("src",errorImg)});
+			// add error and click listeners to modal image
+			mapImg.on({
+				"error":()=>{mapImg.attr("src",errorImg)},
+				"click":location.href= `${location.href.split("?")[0]}?${camID}`
+			});
 
 			// add timer to modal image
 			setTimer(mapImgURL,mapImg);
@@ -146,6 +151,7 @@ $(document).ready(function(){
 		//build this cam's URL
 		var thisCam = camURL+cam+".jpg";
 
+		// build this cam's div and attributes
 		var thisBlock = 
 		`<div class="camContainer col-lg-3 col-md-3 col-sm-4 col-xs-12" data-location="${camData[cam].location}">
 			<img data-camID="${cam}" src="${thisCam}" class="camThumb"/> 
