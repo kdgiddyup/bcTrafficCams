@@ -57,7 +57,8 @@ function initMap(){
 				path: google.maps.SymbolPath.CIRCLE,
 				scale: 10,
 				fillColor: "#0288d1",
-				fillOpacity: .8
+				fillOpacity: .8,
+				strokeWeight: 3
 			  },
 			camID: cam
 		  });
