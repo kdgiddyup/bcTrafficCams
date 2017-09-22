@@ -2,11 +2,11 @@
 #modalImage,
 .camThumb {
     width: 100%;
+    box-shadow: 0 10px 45px -20px #000000;
 }
 
 .camThumb,
 #modalImage {
-    box-shadow: 0 10px 45px -20px #000000;
     cursor: pointer;
 }
 
