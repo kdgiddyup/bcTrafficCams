@@ -47,7 +47,7 @@ else {
 // create map at bottom of page
 function initMap(){
 	var map = new google.maps.Map(document.getElementById('map'), {
-	  zoom: 11,
+	  zoom: 10,
 	  center: {lat: 32.3318, lng: -80.8266}
 		});
 	// add markers
