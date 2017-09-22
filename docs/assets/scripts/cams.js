@@ -233,7 +233,7 @@ $(document).ready(function(){
 
 	// click event for map return button: scroll to top
 	$("#mapReturnBtn").on("click",function(){
-		$("body").animate({
+		$("html body").animate({
 			scrollTop: $("#cam_specific").offset().top
 		}, 1000);;
 	});
