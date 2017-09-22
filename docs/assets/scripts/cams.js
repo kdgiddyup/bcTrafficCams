@@ -59,10 +59,11 @@ function initMap(){
 			animation: google.maps.Animation.DROP,
 			icon: {
 				path: google.maps.SymbolPath.CIRCLE,
-				scale: 10,
+				scale: 8,
 				fillColor: "#0288d1",
 				fillOpacity: .8,
-				strokeWeight: 3
+				strokeWeight: 3,
+				strokeColor: "#0288d1"
 			  },
 			camID: cam
 		  });
