@@ -60,38 +60,18 @@
 
                 <div id="showAllBtn" class="btn btn-primary">Show All</div>
 
-                <div id="showMapBtn" class="btn btn-primary" data-toggle="modal" data-target="#mapModal">Map</div>
+                <div id="showMapBtn" class="btn btn-primary" data-toggle="modal" data-target="#mapModal"><a href="#map">Map</a></div>
             </div>
         </div>
         <!-- /camera panel -->
+
+        <!-- map area -->
+        <div id="map"></div>
 
     </div>
     <!-- /container -->
     <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDAvjBGR4xy-kqpdrE4TK_aQqzEkRUgtIc&callback=initMap">
     </script>
-
-
-    <!-- Modal for map -->
-    <div id="mapModal" class="modal fade" role="dialog">
-        <div class="modal-dialog">
-
-            <!-- Modal content-->
-            <div class="modal-content">
-                <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal">&times;</button>
-                    <h4 id="modalHeader" class="modal-title">Camera locations</h4>
-                </div>
-                <div class="modal-body">
-                    <!-- map area -->
-                    <div id="map"></div>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                </div>
-            </div>
-
-        </div>
-    </div>
 
     <!-- Modal that previews cam on map markers -->
     <div id="camModal" class="modal fade" role="dialog">
