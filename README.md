@@ -1,6 +1,7 @@
 # bcTrafficCams
 Traffic cam UX project with Beaufort County, SC, traffic cameras
 
+*Update: See deployed demo here https://kdgiddyup.github.io/bcTrafficCams/public/trafficcams.html
 
 
 Location filter:
