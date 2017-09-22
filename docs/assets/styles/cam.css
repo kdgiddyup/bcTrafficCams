@@ -4,7 +4,8 @@
     width: 100%;
 }
 
-.camThumb {
+.camThumb,
+#modalImage {
     box-shadow: 0 10px 45px -20px #000000;
     cursor: pointer;
 }
