@@ -63,7 +63,7 @@ function initMap(){
 				fillColor: "#0288d1",
 				fillOpacity: .8,
 				strokeWeight: 3,
-				strokeColor: "#0288d1"
+				strokeColor: "#fff"
 			  },
 			camID: cam
 		  });
