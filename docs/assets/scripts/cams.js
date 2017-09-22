@@ -226,7 +226,7 @@ $(document).ready(function(){
 	
 	// click event for map button: scroll to map
 	$("#showMapBtn").on("click",function(){
-		$("body").animate({
+		$("html body").animate({
 			scrollTop: $("#mapReturnBtn").offset().top
 		}, 1000);;
 	});
