@@ -59,9 +59,9 @@ function initMap(){
 			animation: google.maps.Animation.DROP,
 			icon: {
 				path: google.maps.SymbolPath.CIRCLE,
-				scale: 8,
+				scale: 7,
 				fillColor: "#0288d1",
-				fillOpacity: .8,
+				fillOpacity: .75,
 				strokeWeight: 3,
 				strokeColor: "#fff"
 			  },
