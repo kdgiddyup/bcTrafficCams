@@ -18,8 +18,8 @@
 }
 
 body #hideAllBtn,
-#showAllBtn,
-#showMapBtn {
+body #showAllBtn,
+body #showMapBtn {
     margin: 0 5px 15px 0;
 }
 
