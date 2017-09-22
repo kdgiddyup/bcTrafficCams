@@ -1,3 +1,7 @@
+#camsContainer {
+    position: relative;
+}
+
 #camera_image,
 #modalImage,
 .camThumb {

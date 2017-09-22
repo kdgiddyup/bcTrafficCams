@@ -222,19 +222,23 @@ $(document).ready(function(){
 	$("#showAllBtn").on("click",function(){
 		$(".locale").show("fast");
 	});
-	
+
 	// click event for map button: scroll to map
 	$("#showMapBtn").on("click",function(){
+		$("body").css("overflow-y","hidden");
 		$("body").animate({
 			scrollTop: $("#mapReturnBtn").offset().top
-		}, 1000);;
+		}, 1000);
+		$("body").css("overflow-y", "auto");
 	});
 
 	// click event for map return button: scroll to top
 	$("#mapReturnBtn").on("click",function(){
+		$("body").css("overflow-y","hidden");
 		$("body").animate({
 			scrollTop: $("#camTop").offset().top
-		}, 1000);;
+		}, 1000);
+		$("body").css("overflow-y", "auto");
 	});
 
 	
