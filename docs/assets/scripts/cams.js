@@ -224,6 +224,14 @@ $(document).ready(function(){
 	});
 
 	
+	// click event for map button: scroll to map
+	$("#showMapBtn").on("click",function(){
+		$("body").animate({
+			scrollTop: $("#map").offset().top
+		}, 1000);;
+	});
+
+	
 	// keyup listener for camera filter input
 	$("#filterInput").on("keyup", function(){
 		
