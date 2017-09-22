@@ -159,7 +159,7 @@ $(document).ready(function(){
 
 		// build this cam's div and attributes
 		var thisBlock = 
-		`<div class="camContainer col-lg-3 col-md-3 col-sm-4 col-xs-12" data-location="${camData[cam].location}">
+		`<div class="camContainer col-lg-4 col-md-4 col-sm-6 col-xs-12" data-location="${camData[cam].location}">
 			<img data-camID="${cam}" src="${thisCam}" class="camThumb"/> 
 			<h4 data-camID="${cam}" class="camLabel">${camData[cam].location}</h4>    
 		</div>`;
