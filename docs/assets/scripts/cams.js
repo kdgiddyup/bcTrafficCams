@@ -222,7 +222,6 @@ $(document).ready(function(){
 	$("#showAllBtn").on("click",function(){
 		$(".locale").show("fast");
 	});
-
 	
 	// click event for map button: scroll to map
 	$("#showMapBtn").on("click",function(){
@@ -234,7 +233,7 @@ $(document).ready(function(){
 	// click event for map return button: scroll to top
 	$("#mapReturnBtn").on("click",function(){
 		$("html body").animate({
-			scrollTop: $("#cam_specific").offset().top
+			scrollTop: $("#camTop").offset().top
 		}, 1000);;
 	});
 
