@@ -227,7 +227,14 @@ $(document).ready(function(){
 	// click event for map button: scroll to map
 	$("#showMapBtn").on("click",function(){
 		$("body").animate({
-			scrollTop: $("#map").offset().top
+			scrollTop: $("#mapReturnBtn").offset().top
+		}, 1000);;
+	});
+
+	// click event for map return button: scroll to top
+	$("#mapReturnBtn").on("click",function(){
+		$("body").animate({
+			scrollTop: $("#cam_specific").offset().top
 		}, 1000);;
 	});
 

@@ -20,7 +20,8 @@
 
 body #hideAllBtn,
 body #showAllBtn,
-body #showMapBtn {
+body #showMapBtn,
+body #mapReturnBtn {
     margin: 0 5px 15px 0;
 }
 
