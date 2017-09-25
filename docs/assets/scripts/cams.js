@@ -251,7 +251,7 @@ $(document).ready(function(){
 			var targetTop = $("#camTop").offset().top;
 			
 			// scroll by pixel amount equal to camTop's current pixel pos
-			window.scrollBy(0,targetTop) // first value for horiz scroll, second value for vert scroll
+			window.scrollBy(0,targetTop-50) // first value for horiz scroll, second value for vert scroll
 		}
 		else {
 			$("body").animate({
