@@ -237,8 +237,7 @@ $(document).ready(function(){
 		$("body").css("overflow-y","hidden");
 		$("body").animate({
 			scrollTop: $("#camTop").offset().top
-		}, 1000);
-		$("body").css("overflow-y", "auto");
+		}, 1000,function(){$("body").css("overflow-y", "auto")});
 	});
 
 	
