@@ -1,7 +1,9 @@
-.androidFix {
-    overflow: hidden !important;
-    overflow-y: hidden !important;
-    overflow-x: hidden !important;
+html {
+    overflow: auto;
+}
+
+body {
+    overflow-x: hidden;
 }
 
 #camsContainer {
