@@ -44,23 +44,6 @@ else {
 	var isSpecific = false;
 	};
 
-// scrolling function 
-/* h/t crrollyson at https://coderwall.com/p/n6yw3a/pebkac-jquery-scrolltop-not-working-on-mobile  */
-
-function scrollioreceiver(sender) {
-	$(sender).on({
-	click: sentFrom
-	});
-	
-function sentFrom(){
-	var dataMine = $(this).attr('data-sender'),
-		dataSend = $('[data-receiver="'+dataMine+'"]');
-
-	$('html, body').animate({
-		scrollTop: $(dataSend).offset().top - 70
-	}, 1000);
-	}
-}
 // create map at bottom of page
 function initMap(){
 	var map = new google.maps.Map(document.getElementById('map'), {
@@ -113,8 +96,6 @@ function initMap(){
 
 // do these things after the page loads
 $(document).ready(function(){
-	// initialize map scroll button
-	scrollioreceiver('[data-sender]');
 
 	// hide cam_specific div
 	$("#cam_specific").hide();
@@ -243,18 +224,38 @@ $(document).ready(function(){
 	});
 
 	// click event for map button: scroll to map
-	// $("#showMapBtn").on("click",function(){
-	// 	$("body").addClass("androidFix").animate({
-	// 		scrollTop: $("#mapReturnBtn").offset().top
-	// 	}, 1000).removeClass("androidFix");
-	// });
+	$("#showMapBtn").on("click",function(){
+		
+		// android hack
+		if (navigator.userAgent.match(/Android/)) {          
+			// obtain current pixel pos of top of camMap element
+			var targetTop = elementTop($("#camMap"));
+
+			// scroll by pixel amount equal to map's top position minus 50   
+			window.scrollBy(0,targetTop-50) // first value for horiz scroll, second value for vert scroll
+		}
+		else {
+		$("body").animate({
+			scrollTop: $("#mapReturnBtn").offset().top
+		}, 1000);
+		}
+	});
 
 	// click event for map return button: scroll to top
-	// $("#mapReturnBtn").on("click",function(){
-	// 	$("body").addClass("androidFix").animate({
-	// 		scrollTop: $("#camTop").offset().top
-	// 	}, 1000).removeClass("androidFix");
-	// });
+	$("#mapReturnBtn").on("click",function(){
+		// android hack
+		if (navigator.userAgent.match(/Android/)) {          //Obtain current pixel pos of top of camTop element 
+			var targetTop = elementTop($("#camTop"));
+			console.log("TARGET TOP:",targetTop);
+			// scroll by pixel amount equal to final pos (50) - camTop's current pixel pos
+			window.scrollTo(0,50-targetTop) // first value for horiz scroll, second value for vert scroll
+		}
+		else {
+			$("body").animate({
+				scrollTop: $("#camTop").offset().top
+			}, 1000);
+		}
+	});
 
 	
 	// keyup listener for camera filter input
@@ -299,4 +300,9 @@ function setModalTimer(camURL,camImg){
 	modalTimer = setInterval(function(){
 		camImg.attr("src",`${camURL}?${Math.floor(Math.random()*100000000000)}`)
 	},delay);
+}
+
+// get top position of element
+function elementTop(el) {
+	return el.offset().top
 }
