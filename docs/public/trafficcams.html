@@ -33,7 +33,7 @@
         </div>
         <!-- /row -->
 
-        <div class="row" id="camTop">
+        <div data-receiver="camTop" class="row" id="camTop">
             <!-- specific camera display -->
             <div id="cam_specific">
                 <h2 id="camera_label"></h2>
@@ -60,16 +60,18 @@
 
                     <div id="showAllBtn" class="btn btn-primary">Show All</div>
 
-                    <div id="showMapBtn" class="btn btn-primary">Map</div>
+                    <div data-sender="camMap" id="showMapBtn" class="btn btn-primary">Map</div>
                 </div>
             </div>
             <!-- /camera panel -->
 
             <!-- map area -->
-            <div id="mapReturnBtn" class="btn btn-primary">Return to top</div>
-            <h4>Camera map</h4>
-            <p>Tap markers to see live camera views.</p>
-            <div id="map"></div>
+            <div data-receiver="camMap">
+                <div data-sender="camTop" id="mapReturnBtn" class="btn btn-primary">Return to top</div>
+                <h4>Camera map</h4>
+                <p>Tap markers to see live camera views.</p>
+                <div id="map"></div>
+            </div>
         </div>
     </div>
     <!-- /container -->

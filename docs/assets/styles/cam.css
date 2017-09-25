@@ -33,6 +33,10 @@ body #mapReturnBtn {
     margin: 0 5px 15px 0;
 }
 
+body #mapReturnBtn {
+    margin-top: 15px;
+}
+
 .localeHeader {
     margin: 0 0 10px 0;
 }

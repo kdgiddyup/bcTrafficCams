@@ -44,6 +44,23 @@ else {
 	var isSpecific = false;
 	};
 
+// scrolling function 
+/* h/t crrollyson at https://coderwall.com/p/n6yw3a/pebkac-jquery-scrolltop-not-working-on-mobile  */
+
+function scrollioreceiver(sender) {
+	$(sender).on({
+	click: sentFrom
+	});
+	
+function sentFrom(){
+	var dataMine = $(this).attr('data-sender'),
+		dataSend = $('[data-receiver="'+dataMine+'"]');
+
+	$('html, body').animate({
+		scrollTop: $(dataSend).offset().top - 70
+	}, 1000);
+	}
+}
 // create map at bottom of page
 function initMap(){
 	var map = new google.maps.Map(document.getElementById('map'), {
@@ -96,7 +113,9 @@ function initMap(){
 
 // do these things after the page loads
 $(document).ready(function(){
-	
+	// initialize map scroll button
+	scrollioreceiver('[data-sender]');
+
 	// hide cam_specific div
 	$("#cam_specific").hide();
 
@@ -224,18 +243,18 @@ $(document).ready(function(){
 	});
 
 	// click event for map button: scroll to map
-	$("#showMapBtn").on("click",function(){
-		$("body").addClass("androidFix").animate({
-			scrollTop: $("#mapReturnBtn").offset().top
-		}, 1000).removeClass("androidFix");
-	});
+	// $("#showMapBtn").on("click",function(){
+	// 	$("body").addClass("androidFix").animate({
+	// 		scrollTop: $("#mapReturnBtn").offset().top
+	// 	}, 1000).removeClass("androidFix");
+	// });
 
 	// click event for map return button: scroll to top
-	$("#mapReturnBtn").on("click",function(){
-		$("body").addClass("androidFix").animate({
-			scrollTop: $("#camTop").offset().top
-		}, 1000).removeClass("androidFix");
-	});
+	// $("#mapReturnBtn").on("click",function(){
+	// 	$("body").addClass("androidFix").animate({
+	// 		scrollTop: $("#camTop").offset().top
+	// 	}, 1000).removeClass("androidFix");
+	// });
 
 	
 	// keyup listener for camera filter input
