@@ -232,8 +232,8 @@ $(document).ready(function(){
 			// obtain current pixel pos of top of camMap element
 			var targetTop = $("#camMap").offset().top;
 
-			// scroll by pixel amount equal to map's top position minus 50   
-			window.scrollBy(0,targetTop-50) // first value for horiz scroll, second value for vert scroll
+			// scroll by pixel amount equal to map's top position plus 20   
+			window.scrollBy(0,targetTop+20) // first value for horiz scroll, second value for vert scroll
 		}
 		else {
 		$("body").animate({
@@ -250,8 +250,8 @@ $(document).ready(function(){
 			//Obtain current pixel pos of top of camTop element 
 			var targetTop = $("#camTop").offset().top;
 			
-			// scroll by pixel amount equal to final pos (50) - camTop's current pixel pos
-			window.scrollBy(0,50-targetTop) // first value for horiz scroll, second value for vert scroll
+			// scroll by pixel amount equal to camTop's current pixel pos
+			window.scrollBy(0,targetTop) // first value for horiz scroll, second value for vert scroll
 		}
 		else {
 			$("body").animate({
