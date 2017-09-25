@@ -228,8 +228,9 @@ $(document).ready(function(){
 		
 		// android hack
 		if (navigator.userAgent.match(/Android/)) {          
+			
 			// obtain current pixel pos of top of camMap element
-			var targetTop = elementTop($("#camMap"));
+			var targetTop = $("#camMap").offset().top;
 
 			// scroll by pixel amount equal to map's top position minus 50   
 			window.scrollBy(0,targetTop-50) // first value for horiz scroll, second value for vert scroll
@@ -244,11 +245,13 @@ $(document).ready(function(){
 	// click event for map return button: scroll to top
 	$("#mapReturnBtn").on("click",function(){
 		// android hack
-		if (navigator.userAgent.match(/Android/)) {          //Obtain current pixel pos of top of camTop element 
-			var targetTop = elementTop($("#camTop"));
-			console.log("TARGET TOP:",targetTop);
+		if (navigator.userAgent.match(/Android/)) {          
+			
+			//Obtain current pixel pos of top of camTop element 
+			var targetTop = $("#camTop").offset().top;
+			
 			// scroll by pixel amount equal to final pos (50) - camTop's current pixel pos
-			window.scrollTo(0,50-targetTop) // first value for horiz scroll, second value for vert scroll
+			window.scrollBy(0,50-targetTop) // first value for horiz scroll, second value for vert scroll
 		}
 		else {
 			$("body").animate({
@@ -300,9 +303,4 @@ function setModalTimer(camURL,camImg){
 	modalTimer = setInterval(function(){
 		camImg.attr("src",`${camURL}?${Math.floor(Math.random()*100000000000)}`)
 	},delay);
-}
-
-// get top position of element
-function elementTop(el) {
-	return el.offset().top
 }
