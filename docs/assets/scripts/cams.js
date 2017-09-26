@@ -146,7 +146,7 @@ $(document).ready(function(){
 	// build panel headers, div
 	$(locales).each( (index,element)=>{
 		$("#panelCol").append(`
-			<button class="localeHeader btn btn-success btn-block" data-locale="${element}">${element}</button>
+			<button class="localeHeader btn btn-success" data-locale="${element}">${element}</button>
 			<div class="locale row" data-locale="${element}"></div>`);
 	});
 	
