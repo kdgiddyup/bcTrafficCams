@@ -204,6 +204,9 @@ $(document).ready(function(){
 	// add click listener on headers
 	$(".localeHeader").on("click",function () {
 
+		// toggle block and color classes to group or ungroup button from  group
+		$(this).toggleClass("block btn-success");
+
 		// get locale data from clicked button
 		var thisLocale = $(this).attr("data-locale");
 		
@@ -216,11 +219,15 @@ $(document).ready(function(){
 	// click event for button to hide all cameras 
 	$("#hideAllBtn").on("click",function(){
 		$(".locale").hide("fast");
+		// also adjust locale headers classes to show "off" color class
+		$(".localeHeader").removeClass("btn-success block");
 	});
 
 	// click event for button to show all cameras 
 	$("#showAllBtn").on("click",function(){
 		$(".locale").show("fast");
+		// also adjust locale header classes to remove "off" color class
+		$(".localeHeader").addClass("btn-success block");
 	});
 
 	// click event for map button: scroll to map

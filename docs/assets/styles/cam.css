@@ -19,7 +19,7 @@
 }
 
 .camContainer {
-    min-height: 285px;
+    min-height: 300px;
 }
 
 body #hideAllBtn,
@@ -52,4 +52,8 @@ body #mapReturnBtn {
     width: 90%;
     height: 65%;
     max-width: 400px;
+}
+
+.block {
+    display: block;
 }
